@@ -195,20 +195,36 @@ not needed
 ```json
 [
   {
-    "id": 1,
-    "title": "Main",
-    "category": "done",
-    "UserId": 1,
-    "createdAt": "2020-05-08T10:09:35.368Z",
-    "updatedAt": "2020-05-08T10:09:35.368Z"
+    "id": 3,
+    "title": "Pull Request",
+    "category": "back-log",
+    "UserId": 3,
+    "createdAt": "2020-05-08T10:35:01.484Z",
+    "updatedAt": "2020-05-08T10:35:01.484Z",
+    "User": {
+      "id": 3,
+      "email": "doe@gmail.com",
+      "password": "$2b$10$tMNBGQ8.LMIF948Q.ZS6Uu0HM8Ms.rKQh2whSrTXFVWHLHs2gV7s6",
+      "organization": "Hacktiv8",
+      "createdAt": "2020-05-08T10:34:19.383Z",
+      "updatedAt": "2020-05-08T10:34:19.383Z"
+    }
   },
   {
-    "id": 2,
-    "title": "Pull Request",
-    "category": "done",
-    "UserId": 1,
-    "createdAt": "2020-05-08T10:14:02.054Z",
-    "updatedAt": "2020-05-08T10:14:02.054Z"
+    "id": 4,
+    "title": "Makan",
+    "category": "back-log",
+    "UserId": 5,
+    "createdAt": "2020-05-08T14:06:20.947Z",
+    "updatedAt": "2020-05-08T14:06:20.947Z",
+    "User": {
+      "id": 5,
+      "email": "adad@adad.com",
+      "password": "$2b$10$n4ncaAD2AKHDfirRY2tRv.fmYck9hhh2.tG47bHNnBFj3.xI5U6J2",
+      "organization": "Hacktiv8",
+      "createdAt": "2020-05-08T14:01:36.763Z",
+      "updatedAt": "2020-05-08T14:01:36.763Z"
+    }
   }
 ]
 ```

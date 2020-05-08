@@ -1,11 +1,11 @@
-const { Task } = require('../models')
+const { Task, User } = require('../models')
 const { getUserData } = require('../helpers/token')
 
 class TaskController {
     static getAll (req, res, next) {
         const UserId = getUserData(req.headers.access_token).id
 
-        Task.findAll({ where: { UserId } })
+        Task.findAll({ include: User })
         .then(data => {
             res.status(200).json(data)
         })
