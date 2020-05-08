@@ -33,7 +33,7 @@ import Swal from 'sweetalert2'
 import taskCard from './taskCard.vue'
 import navbar from './navbar.vue'
 import task from './task.vue'
-const base_url = 'http://localhost:3000'
+const base_url = 'https://nameless-hollows-14961.herokuapp.com'
 
 export default Vue.extend({
     components: {

@@ -40,7 +40,7 @@
 <script>
 import axios from 'axios'
 import navbar from './navbar.vue'
-const base_url = 'http://localhost:3000'
+const base_url = 'https://nameless-hollows-14961.herokuapp.com'
 
 export default {
     components: {

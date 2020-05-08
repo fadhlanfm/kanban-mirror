@@ -35,7 +35,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import GAuth from 'vue-google-oauth2'
-const base_url = 'http://localhost:3000'
+const base_url = 'https://nameless-hollows-14961.herokuapp.com'
 
 
 export default Vue.extend({

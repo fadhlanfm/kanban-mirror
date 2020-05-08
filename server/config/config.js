@@ -18,11 +18,10 @@ module.exports =
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "username": "ffyucykqvrkrxu",
+    "password": "7baba23f7b96af681654159dd09351cdbf98c666ecb3c8bc795c4525dc27e8be",
+    "database": "dbo4sspnfqqqud",
+    "host": "ec2-34-234-228-127.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
