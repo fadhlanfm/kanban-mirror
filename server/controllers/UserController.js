@@ -1,7 +1,8 @@
 const { User } = require('../models')
 const { checkPassword } = require('../helpers/crypt')
 const { generateToken } = require('../helpers/token')
-const { verficationGoogle } = require('../helpers/googleOauthApi')
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(process.env.CLIENT_ID);
 
 class UserController {
     static signup (req, res, next) {
@@ -45,41 +46,31 @@ class UserController {
     }
 
     static googleSignIn (req, res, next) {
-        let email, name
-        let google_token = req.headers.google_token
-        let newUser = false
-
-        verficationGoogle(google_token)
-        .then(payload => {
-            console.log(payload)
-            email = payload.email
-            name = payload.name
-            return User.findOne({
-                where: {
-                    email
-                }
-            })
+        let token = req.body.token;
+        let payload = null;
+        client.verifyIdToken({
+            idToken: token,
+            audience: process.env.CLIENT_ID
         })
-        .then(user => {
-            if (user) {
-                return user
-            } else {
-                newUser = true
-                return User.create({
-                    email,
-                    name,
+        .then(ticket => {
+            payload = ticket.getPayload();
+            return User.findOne({ where: { email: payload.email } })
+        }).then(data => {
+            if (!data) {
+                 return User.create({
+                    email: payload.email,
                     password: process.env.DEFAULT_GOOGLE_PASSWORD
                 })
+            } else {
+                return data;
             }
-        })
-        .then(user => {
-            let statusCode = newUser ? 201 : 200;
-            let access_token = generateToken(user)
-            res.status(statusCode).json({
-                access_token
-            })
-        })
-        .catch(next)
+        }).then(data => {
+            let newPayload = { id: data.id };
+            let token = generateToken(newPayload);
+            res.status(200).json({ token });
+        }).catch(err => {
+            next(err);
+        });
     }
 }
 

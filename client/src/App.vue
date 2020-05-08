@@ -85,7 +85,11 @@ export default {
             this.page = page
         },
         loginUser(data){
-            localStorage.setItem('access_token', data.access_token)
+            if(data.token) {
+                localStorage.setItem('access_token', data.token)
+            } else {
+                localStorage.setItem('access_token', data.access_token)
+            }
             this.page = 'main'
             console.log(data)
         },

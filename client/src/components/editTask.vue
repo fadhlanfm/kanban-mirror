@@ -66,14 +66,14 @@ export default {
             this.edit_category = data.category
         }).catch(err => {
             this.$emit('showError', err)
-        });
+        })
     },
     methods: {
         editData() {
             let obj = {
                 title: this.edit_title,
                 category: this.edit_category
-            };
+            }
             axios({
                 method: 'PUT',
                 url: base_url + `/tasks/${this.editId}`,
@@ -86,7 +86,7 @@ export default {
                 this.$emit('changePage', 'main')
             }).catch(err => {
                 this.$emit('showError', err)
-            });
+            })
         },
         mainPage() {
             this.$emit('changePage', 'main')

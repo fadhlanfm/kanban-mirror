@@ -21,7 +21,7 @@
                     </form>
                     <div class="card-footer">
                         Don't have an account?
-                        <p><a href="" @click.prevent="signUpForm">Sign Up</a> or <div class="g-signin2" data-onsuccess="onSignIn"></div></p>
+                        <p><a href="" @click.prevent="signUpForm">Sign Up</a> or <a href="" @click.prevent="onSuccess">Sign In with <i class="fab fa-google"></i></a></p>
                     </div>
             </div>
         </div>
@@ -34,6 +34,7 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
+import GAuth from 'vue-google-oauth2'
 const base_url = 'http://localhost:3000'
 
 
@@ -47,18 +48,18 @@ export default Vue.extend({
     methods: {
         onSuccess() {
             this.$gAuth.signIn()
-            .then( GoogleUser => {
-                let access_token = GoogleUser.getAuthResponse().id_token
-                this.onSignIn(access_token)
+            .then(googleUser => {
+                let token = googleUser.getAuthResponse().id_token
+                this.onSignIn(token)
             }).catch( err => {
                 console.log(err)
             })
         },
-        onSignIn(access_token) {
-            let obj = { access_token }
+        onSignIn(token) {
+            let obj = { token }
             axios({
                 method: 'POST',
-                url: base_url + '/googlelogin',
+                url: base_url + '/googleSignIn',
                 data: obj
             })
             .then(({ data }) => {
@@ -89,7 +90,7 @@ export default Vue.extend({
             }).catch(err => {
                 this.$emit('showError', err)
             })
-        },
+        }
     }
 
 })
