@@ -21,7 +21,7 @@ Tech stacks: node.js, express, postgres, sequelize, google oauth, bcrypt, cors, 
 
 ---
 
-> ## POST /user/signup
+> ## POST /signup
 
 Sign up and create a new account
 
@@ -78,7 +78,7 @@ Sign up and create a new account
 }
 ```
 
-> ## POST /user/signin
+> ## POST /signin
 
 Sign in with email & password account
 
