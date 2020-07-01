@@ -1,4 +1,5 @@
-# Deployment :
+A simple kanban application.
+Tech stacks: node.js, express, postgres, sequelize, google oauth, bcrypt, cors, dotenv, jsonwebtoken, axios, vue
 
 ## Client:
 
@@ -7,12 +8,6 @@
 ## Server:
 
 ## [https://nameless-hollows-14961.herokuapp.com](https://nameless-hollows-14961.herokuapp.com)
-
-# Server side of Kanban App:
-
-- RESTful endpoint for asset's CRUD operation
-- Return JSON formatted response
-- Tech stack: node.js, express, postgres, sequelize, google oauth, bcrypt, cors, dotenv, jsonwebtoken
 
 ## REST endpoint
 
